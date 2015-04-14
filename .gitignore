@@ -1,5 +1,5 @@
 .gradle
-.idea\
+.idea
 .idea/libraries
 .DS_Store
 
