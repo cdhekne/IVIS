@@ -12,6 +12,7 @@ public class LandingPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+        System.out.print("Dummy Issue");
 
     }
 
