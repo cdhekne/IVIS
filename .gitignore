@@ -29,3 +29,5 @@ proguard/
 
 # Log Files
 *.log
+.idea/scopes/scope_settings.xml
+.idea/encodings.xml
