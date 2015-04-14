@@ -39,3 +39,5 @@ proguard/
 .idea/vcs.xml
 app/app.iml
 IVIS.iml
+app/app.iml
+.idea/misc.xml
