@@ -31,3 +31,11 @@ proguard/
 *.log
 .idea/scopes/scope_settings.xml
 .idea/encodings.xml
+.idea/compiler.xml
+.idea/compiler.xml
+.idea/misc.xml
+.idea/gradle.xml
+.idea/modules.xml
+.idea/vcs.xml
+app/app.iml
+IVIS.iml
