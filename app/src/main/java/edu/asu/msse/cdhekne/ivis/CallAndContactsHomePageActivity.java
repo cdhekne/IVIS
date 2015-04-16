@@ -16,6 +16,7 @@ import java.util.List;
 public class CallAndContactsHomePageActivity extends ActionBarActivity implements View.OnClickListener {
 
     private ImageButton mic_button;
+    private ImageButton home_button;
     private static final int SPEECH_REQUEST_CODE = 1;
 
     @Override
@@ -24,6 +25,9 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
         setContentView(R.layout.activity_call_and_contacts_home_page);
         mic_button =(ImageButton)findViewById(R.id.mic_button);
         mic_button.setOnClickListener(this);
+
+        home_button = (ImageButton)findViewById(R.id.home_button);
+        home_button.setOnClickListener(this);
     }
 
     @Override
@@ -32,6 +36,12 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
+        }
+
+        if(v.getId() == home_button.getId()){
+
+            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
+            startActivity(intent);
         }
     }
 
