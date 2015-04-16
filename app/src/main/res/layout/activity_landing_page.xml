@@ -12,7 +12,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/nav_button"
         android:background="@drawable/navigation_xhdpi"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -23,61 +23,61 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
+        android:id="@+id/media_button"
         android:layout_marginLeft="44dp"
         android:background="@drawable/media_xhdpi"
-        android:layout_above="@+id/imageButton4"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
+        android:layout_above="@+id/carControls_button"
+        android:layout_toRightOf="@+id/nav_button"
+        android:layout_toEndOf="@+id/nav_button"
         android:layout_marginStart="44dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
+        android:id="@+id/call_button"
         android:background="@drawable/phone_xhdpi"
-        android:layout_above="@+id/imageButton4"
-        android:layout_alignLeft="@+id/imageButton6"
-        android:layout_alignStart="@+id/imageButton6" />
+        android:layout_above="@+id/carControls_button"
+        android:layout_alignLeft="@+id/apps_button"
+        android:layout_alignStart="@+id/apps_button" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton4"
+        android:id="@+id/carControls_button"
         android:background="@drawable/controls_xhdpi"
         android:layout_marginTop="48dp"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton" />
+        android:layout_below="@+id/nav_button"
+        android:layout_alignLeft="@+id/nav_button"
+        android:layout_alignStart="@+id/nav_button" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton5"
+        android:id="@+id/climate_button"
         android:background="@drawable/climate_xhdpi"
-        android:layout_alignTop="@+id/imageButton4"
-        android:layout_alignLeft="@+id/imageButton2"
-        android:layout_alignStart="@+id/imageButton2" />
+        android:layout_alignTop="@+id/carControls_button"
+        android:layout_alignLeft="@+id/media_button"
+        android:layout_alignStart="@+id/media_button" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton6"
+        android:id="@+id/apps_button"
         android:background="@drawable/apps_xhdpi"
         android:layout_marginLeft="42dp"
         android:layout_marginStart="42dp"
-        android:layout_alignTop="@+id/imageButton5"
-        android:layout_toRightOf="@+id/imageButton5"
-        android:layout_toEndOf="@+id/imageButton5" />
+        android:layout_alignTop="@+id/climate_button"
+        android:layout_toRightOf="@+id/climate_button"
+        android:layout_toEndOf="@+id/climate_button" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton7"
-        android:layout_marginTop="44dp"
+        android:id="@+id/mic_button"
         android:background="@drawable/mic_xhdpi"
-        android:layout_alignTop="@+id/imageButton3"
+        android:layout_above="@+id/apps_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>
