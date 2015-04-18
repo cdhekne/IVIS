@@ -17,6 +17,7 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
 
     private ImageButton mic_button;
     private ImageButton home_button;
+    private ImageButton back_button, call_button, contacts_button;
     private static final int SPEECH_REQUEST_CODE = 1;
 
     @Override
@@ -28,6 +29,15 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
 
         home_button = (ImageButton)findViewById(R.id.home_button);
         home_button.setOnClickListener(this);
+
+        back_button = (ImageButton)findViewById(R.id.back_button);
+        back_button.setOnClickListener(this);
+
+        call_button = (ImageButton)findViewById(R.id.call_button);
+        call_button.setOnClickListener(this);
+
+        contacts_button = (ImageButton)findViewById(R.id.contacts_button);
+        contacts_button.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +53,24 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
             Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
             startActivity(intent);
         }
+
+        if(v.getId() == back_button.getId()){
+
+            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
+            startActivity(intent);
+        }
+
+        if(v.getId() == call_button.getId()){
+
+            Intent intent = new Intent(CallAndContactsHomePageActivity.this, CallsActivity.class);
+            startActivity(intent);
+        }
+
+        /*if(v.getId() == contacts_button.getId()){
+
+            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
+            startActivity(intent);
+        }*/
     }
 
     @Override
@@ -64,7 +92,7 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
                 startActivity(goToMediaIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
-            else if(spokenText.contains("phone")|| spokenText.contains("call")){
+            else if(spokenText.contains("call")){
                 /*Intent goToPhoneIntent = new Intent();
                 startActivity(goToPhoneIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
@@ -82,6 +110,16 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
             else if(spokenText.contains("apps")){
                 /*Intent goToAppsIntent = new Intent();
                 startActivity(goToAppsIntent);*/
+                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+            }
+            else if(spokenText.contains("phone")){
+                Intent goToAppsPhone = new Intent(CallAndContactsHomePageActivity.this, CallsActivity.class);
+                startActivity(goToAppsPhone);
+                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+            }
+            else if(spokenText.contains("home")){
+                Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
+                startActivity(intent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
         }
