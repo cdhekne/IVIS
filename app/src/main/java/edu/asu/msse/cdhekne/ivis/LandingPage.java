@@ -65,8 +65,8 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
             startActivity(intent);*/
         }
         else if(v.getId()==media.getId()){
-            /*Intent intent = new Intent(LandingPage.this,);
-            startActivity(intent);*/
+            Intent intent = new Intent(LandingPage.this,MediaAndRadioHomePageActivity.class);
+            startActivity(intent);
         }
         else if(v.getId()==phone.getId()){
             Intent intent = new Intent(LandingPage.this,CallAndContactsHomePageActivity.class);
