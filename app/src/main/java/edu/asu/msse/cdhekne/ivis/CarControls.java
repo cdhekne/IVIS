@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -74,7 +75,7 @@ public class CarControls extends ActionBarActivity implements View.OnClickListen
     public void onClick(View v) {
         if (v.getId()==mic.getId()){
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
         }
     }
@@ -88,34 +89,44 @@ public class CarControls extends ActionBarActivity implements View.OnClickListen
                     RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
 //            Log.d("Speech Output:---->>>>>",spokenText);
-            if (spokenText.contains("low beam")) {
-                low_beam.setVisibility(View.VISIBLE);
-                high_beam.setVisibility(View.INVISIBLE);
+            Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+            if (spokenText.contains("low")) {
+                if(spokenText.contains("beam")) {
+                    low_beam.setVisibility(View.VISIBLE);
+                    high_beam.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
+                }
             }
-            else if(spokenText.contains("high beam")){
-                high_beam.setVisibility(View.VISIBLE);
-                low_beam.setVisibility(View.INVISIBLE);
+            else if(spokenText.contains("max")){
+                if(spokenText.contains("beam")) {
+                    high_beam.setVisibility(View.VISIBLE);
+                    low_beam.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
+                }
             }
             else if(spokenText.contains("home")){
                 Intent goToHomeIntent = new Intent(CarControls.this,LandingPage.class);
+                Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
                 startActivity(goToHomeIntent);
             }
-            else if(spokenText.contains("back")){
+            else if(spokenText.contains("go back")){
                 Intent goBackIntent = new Intent(CarControls.this,LandingPage.class);
+                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
                 startActivity(goBackIntent);
             }
             else if(spokenText.contains("settings")){
                 /*Intent goBackIntent = new Intent(CarControls.this,LandingPage.class);
                 startActivity(goBackIntent);*/
             }
-            else if(spokenText.contains("rear wiper")){
-                if(spokenText.contains("off")){
-                    rear_wiper_off.setVisibility(View.VISIBLE);
-                    rear_wiper_on.setVisibility(View.INVISIBLE);
-                }
-                else{
+            else if(spokenText.contains("back wiper"))
+            {
+                if(spokenText.contains("on")) {
                     rear_wiper_on.setVisibility(View.VISIBLE);
                     rear_wiper_off.setVisibility(View.INVISIBLE);
+                }
+                else if(spokenText.contains("off")){
+                    rear_wiper_off.setVisibility(View.VISIBLE);
+                    rear_wiper_on.setVisibility(View.INVISIBLE);
                 }
             }
         }
