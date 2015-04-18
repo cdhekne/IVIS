@@ -112,12 +112,13 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/song"
-        android:background="@drawable/song_name"
+        android:id="@+id/fm"
+        android:background="@drawable/radio_fm"
         android:layout_alignTop="@+id/button_back"
         android:layout_alignLeft="@+id/back2"
         android:layout_alignStart="@+id/back2"
         android:layout_toStartOf="@+id/forw2"
+        android:layout_toLeftOf="@+id/forw2"
         android:layout_above="@+id/stop"
         android:layout_alignRight="@+id/play"
         android:layout_alignEnd="@+id/play"
@@ -142,29 +143,24 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/shuffle"
-        android:background="@drawable/shuffle"
-        android:layout_below="@+id/seekbar"
-        android:layout_alignLeft="@+id/seekbar"
-        android:layout_alignStart="@+id/seekbar" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/repeat"
-        android:background="@drawable/repeat"
-        android:layout_alignTop="@+id/shuffle"
-        android:layout_alignRight="@+id/seekbar"
-        android:layout_alignEnd="@+id/seekbar" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/volume"
         android:background="@drawable/volume_bar"
         android:paddingRight="50pt"
         android:layout_toLeftOf="@+id/button_mic"
         android:layout_above="@+id/button_settings"
         android:layout_below="@+id/button_mic" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="channel"
+        android:background="@drawable/radio_preset"
+        android:layout_above="@+id/button_help"
+        android:layout_alignRight="@+id/forw2"
+        android:layout_alignEnd="@+id/forw2"
+        android:layout_alignLeft="@+id/seekbar"
+        android:layout_alignStart="@+id/seekbar"
+        android:layout_below="@+id/seekbar"
+        android:layout_marginTop="62dp" />
 
 </RelativeLayout>

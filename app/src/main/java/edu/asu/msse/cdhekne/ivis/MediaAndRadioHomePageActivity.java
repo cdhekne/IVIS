@@ -59,6 +59,12 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
             startActivity(intent);
         }
 
+        if(v.getId() == radio_button.getId()){
+
+            Intent intent = new Intent(MediaAndRadioHomePageActivity.this, RadioActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 
@@ -82,13 +88,13 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("phone")|| spokenText.contains("call")){
-                /*Intent goToPhoneIntent = new Intent();
-                startActivity(goToPhoneIntent);*/
+                Intent goToPhoneIntent = new Intent(MediaAndRadioHomePageActivity.this, CallsActivity.class);
+                startActivity(goToPhoneIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("controls")){
-                /*Intent goToControlsIntent = new Intent();
-                startActivity(goToControlsIntent);*/
+                Intent goToControlsIntent = new Intent(MediaAndRadioHomePageActivity.this, CarControls.class);
+                startActivity(goToControlsIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("climate")){

@@ -35,6 +35,9 @@
         <activity android:name=".MediaActivity"
             android:label="MediaActivity"></activity>
 
+        <activity android:name=".RadioActivity"
+            android:label="RadioActivity"></activity>
+
     </application>
 
 </manifest>

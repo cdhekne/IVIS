@@ -14,7 +14,7 @@ import java.util.List;
 
 
 /**
- * Created by japas_000 on 4/17/2015.
+ * Created by japas_000 on 4/18/2015.
  * Copyright 2015 Japa Swadia
  * Right to Use: Public
  * Purpose: SER 598 Mobile Systems course, Android app development
@@ -22,15 +22,14 @@ import java.util.List;
  * @author Japa Swadia, Japa.Swadia@asu.edu,
  *         Graduate Student, Software Engineering, CIDSE,
  *         Arizona State University
- * @version 17 Apr 2015
+ * @version 18 Apr 2015
  */
-public class MediaActivity  extends ActionBarActivity implements View.OnClickListener {
+public class RadioActivity extends ActionBarActivity implements View.OnClickListener {
 
     private ImageButton mic_button;
     private ImageButton back_button;
-    private ImageButton play, pause, stop, forw, back;
+    private ImageButton play, pause, stop, seek_forw, seek_back;
     private static final int SPEECH_REQUEST_CODE = 1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +46,10 @@ public class MediaActivity  extends ActionBarActivity implements View.OnClickLis
         play.setOnClickListener(this);
         stop = (ImageButton) findViewById(R.id.stop);
         stop.setOnClickListener(this);
-        forw = (ImageButton) findViewById(R.id.forw2);
-        forw.setOnClickListener(this);
-        back = (ImageButton) findViewById(R.id.back2);
-        back.setOnClickListener(this);
+        seek_forw = (ImageButton) findViewById(R.id.forw2);
+        seek_forw.setOnClickListener(this);
+        seek_back = (ImageButton) findViewById(R.id.back2);
+        seek_back.setOnClickListener(this);
         pause = (ImageButton) findViewById(R.id.pause);
         pause.setOnClickListener(this);
 
@@ -65,7 +64,7 @@ public class MediaActivity  extends ActionBarActivity implements View.OnClickLis
         }
 
         if (v.getId() == back_button.getId()) {
-            Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
+            Intent intent = new Intent(RadioActivity.this, MediaAndRadioHomePageActivity.class);
             startActivity(intent);
 
         }
@@ -105,18 +104,18 @@ public class MediaActivity  extends ActionBarActivity implements View.OnClickLis
                 Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("media")){
-                /*Intent goToMediaIntent = new Intent();
-                startActivity(goToMediaIntent);*/
+                Intent goToMediaIntent = new Intent(RadioActivity.this, MediaActivity.class);
+                startActivity(goToMediaIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("phone")|| spokenText.contains("call")){
-                Intent goToPhoneIntent = new Intent(MediaActivity.this, CallsActivity.class);
+                Intent goToPhoneIntent = new Intent(RadioActivity.this, CallsActivity.class);
                 startActivity(goToPhoneIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("controls")){
-                /*Intent goToControlsIntent = new Intent();
-                startActivity(goToControlsIntent);*/
+                Intent goToControlsIntent = new Intent(RadioActivity.this, CarControls.class);
+                startActivity(goToControlsIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("climate")){
@@ -130,7 +129,7 @@ public class MediaActivity  extends ActionBarActivity implements View.OnClickLis
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("home")){
-                Intent goToHomeIntent = new Intent(MediaActivity.this, LandingPage.class);
+                Intent goToHomeIntent = new Intent(RadioActivity.this, LandingPage.class);
                 startActivity(goToHomeIntent);
             }
         }
@@ -159,5 +158,10 @@ public class MediaActivity  extends ActionBarActivity implements View.OnClickLis
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
 
 }
