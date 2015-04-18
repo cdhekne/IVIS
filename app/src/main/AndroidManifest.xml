@@ -37,6 +37,9 @@
 
         <activity android:name=".RadioActivity"
             android:label="RadioActivity"></activity>
+        
+        <activity android:name=".NavigationActivity"
+            android:label="NavigationActivity"></activity>
 
     </application>
 
