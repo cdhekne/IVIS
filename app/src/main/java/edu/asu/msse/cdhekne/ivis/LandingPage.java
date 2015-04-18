@@ -63,8 +63,8 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("controls")){
-                /*Intent goToControlsIntent = new Intent();
-                startActivity(goToControlsIntent);*/
+                Intent goToControlsIntent = new Intent(LandingPage.this,CarControls.class);
+                startActivity(goToControlsIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("climate")){
