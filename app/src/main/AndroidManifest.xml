@@ -31,6 +31,10 @@
         </activity>
         <activity android:name=".MediaAndRadioHomePageActivity"
             android:label="MediaAndRadioHomePageActivity"></activity>
+
+        <activity android:name=".MediaActivity"
+            android:label="MediaActivity"></activity>
+
     </application>
 
 </manifest>
