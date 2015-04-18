@@ -13,7 +13,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/call_button"
+        android:id="@+id/media_button"
         android:background="@drawable/media_xhdpi"
         android:layout_marginLeft="204dp"
         android:layout_marginStart="204dp"
@@ -25,12 +25,15 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/contacts_button"
-        android:background="@drawable/contacts_xhdpi"
-        android:layout_toRightOf="@+id/call_button"
-        android:layout_marginLeft="123dp"
-        android:layout_marginStart="123dp"
-        android:layout_alignBottom="@+id/call_button" />
+        android:id="@+id/radio_button"
+        android:background="@drawable/radio"
+        android:layout_alignBottom="@+id/call_button"
+        android:layout_alignTop="@+id/call_button"
+        android:layout_toRightOf="@+id/home_button"
+        android:layout_toLeftOf="@+id/mic_button"
+        android:layout_toStartOf="@+id/mic_button"
+        android:layout_marginRight="170dp"
+        android:layout_marginEnd="170dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
