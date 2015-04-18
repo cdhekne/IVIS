@@ -8,36 +8,57 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 
-public class CallAndContactsHomePageActivity extends ActionBarActivity implements View.OnClickListener {
+public class CallsActivity extends ActionBarActivity implements View.OnClickListener {
 
     private ImageButton mic_button;
-    private ImageButton home_button;
-    private ImageButton back_button, call_button, contacts_button;
+    private ImageButton back_button;
+    private ImageButton one, two, three, four, five, six, seven, eight, nine, asterisk, hash, zero;
+    private TextView mainTV;
     private static final int SPEECH_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_call_and_contacts_home_page);
+        setContentView(R.layout.activity_calls);
+
         mic_button =(ImageButton)findViewById(R.id.mic_button);
         mic_button.setOnClickListener(this);
-
-        home_button = (ImageButton)findViewById(R.id.home_button);
-        home_button.setOnClickListener(this);
 
         back_button = (ImageButton)findViewById(R.id.back_button);
         back_button.setOnClickListener(this);
 
-        call_button = (ImageButton)findViewById(R.id.call_button);
-        call_button.setOnClickListener(this);
+        mainTV = (TextView)findViewById(R.id.mainTV);
 
-        contacts_button = (ImageButton)findViewById(R.id.contacts_button);
-        contacts_button.setOnClickListener(this);
+        one = (ImageButton)findViewById(R.id.button_one);
+        one.setOnClickListener(this);
+        two = (ImageButton)findViewById(R.id.button_two);
+        two.setOnClickListener(this);
+        three = (ImageButton)findViewById(R.id.button_three);
+        three.setOnClickListener(this);
+        four = (ImageButton)findViewById(R.id.button_four);
+        four.setOnClickListener(this);
+        five = (ImageButton)findViewById(R.id.button_five);
+        five.setOnClickListener(this);
+        six = (ImageButton)findViewById(R.id.button_six);
+        six.setOnClickListener(this);
+        seven = (ImageButton)findViewById(R.id.button_seven);
+        seven.setOnClickListener(this);
+        eight = (ImageButton)findViewById(R.id.button_eight);
+        eight.setOnClickListener(this);
+        nine = (ImageButton)findViewById(R.id.button_nine);
+        nine.setOnClickListener(this);
+        asterisk = (ImageButton)findViewById(R.id.button_asterisk);
+        asterisk.setOnClickListener(this);
+        hash = (ImageButton)findViewById(R.id.button_hash);
+        hash.setOnClickListener(this);
+        zero = (ImageButton)findViewById(R.id.button_zero);
+        zero.setOnClickListener(this);
     }
 
     @Override
@@ -48,29 +69,47 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
         }
 
-        if(v.getId() == home_button.getId()){
-
-            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
-            startActivity(intent);
-        }
-
         if(v.getId() == back_button.getId()){
-
-            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
+            Intent intent = new Intent(CallsActivity.this, CallAndContactsHomePageActivity.class);
             startActivity(intent);
         }
 
-        if(v.getId() == call_button.getId()){
-
-            Intent intent = new Intent(CallAndContactsHomePageActivity.this, CallsActivity.class);
-            startActivity(intent);
+        if(v.getId() == one.getId()){
+            mainTV.append("1");
         }
-
-        /*if(v.getId() == contacts_button.getId()){
-
-            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
-            startActivity(intent);
-        }*/
+        if(v.getId() == two.getId()){
+            mainTV.append("2");
+        }
+        if(v.getId() == three.getId()){
+            mainTV.append("3");
+        }
+        if(v.getId() == four.getId()){
+            mainTV.append("4");
+        }
+        if(v.getId() == five.getId()){
+            mainTV.append("5");
+        }
+        if(v.getId() == six.getId()){
+            mainTV.append("6");
+        }
+        if(v.getId() == seven.getId()){
+            mainTV.append("7");
+        }
+        if(v.getId() == eight.getId()){
+            mainTV.append("8");
+        }
+        if(v.getId() == nine.getId()){
+            mainTV.append("9");
+        }
+        if(v.getId() == zero.getId()){
+            mainTV.append("0");
+        }
+        if(v.getId() == asterisk.getId()){
+            mainTV.append("*");
+        }
+        if(v.getId() == hash.getId()){
+            mainTV.append("#");
+        }
     }
 
     @Override
@@ -92,7 +131,7 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
                 startActivity(goToMediaIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
-            else if(spokenText.contains("call")){
+            else if(spokenText.contains("phone")|| spokenText.contains("call")){
                 /*Intent goToPhoneIntent = new Intent();
                 startActivity(goToPhoneIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
@@ -112,15 +151,16 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
                 startActivity(goToAppsIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
-            else if(spokenText.contains("phone")){
-                Intent goToAppsPhone = new Intent(CallAndContactsHomePageActivity.this, CallsActivity.class);
-                startActivity(goToAppsPhone);
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
             else if(spokenText.contains("home")){
-                Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+                Intent goToHomeIntent = new Intent(CallsActivity.this, LandingPage.class);
+                startActivity(goToHomeIntent);
+            }
+            else if(spokenText.contains("back")){
+                Intent goToHomeIntent = new Intent(CallsActivity.this, CallAndContactsHomePageActivity.class);
+                startActivity(goToHomeIntent);
+            }
+            else if(spokenText.matches("[0-9]+")){
+                mainTV.append(spokenText);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -131,7 +171,7 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_call_and_contacts_home_page, menu);
+        getMenuInflater().inflate(R.menu.menu_calls, menu);
         return true;
     }
 

@@ -23,8 +23,14 @@
         </activity>
         <activity
             android:name=".CarControls"
-            android:label="@string/title_activity_car_controls" >
+            android:label="@string/title_activity_car_Controls" >
         </activity>
+        <activity
+            android:name=".CallsActivity"
+            android:label="@string/title_activity_calls" >
+        </activity>
+        <activity android:name=".MediaAndRadioHomePageActivity"
+            android:label="MediaAndRadioHomePageActivity"></activity>
     </application>
 
 </manifest>
