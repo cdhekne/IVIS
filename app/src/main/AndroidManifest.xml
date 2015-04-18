@@ -21,6 +21,14 @@
             android:name=".CallAndContactsHomePageActivity"
             android:label="@string/title_activity_call_and_contacts_home_page" >
         </activity>
+        <activity
+            android:name=".CarControls"
+            android:label="@string/title_activity_car_Controls" >
+        </activity>
+        <activity
+            android:name=".CallsActivity"
+            android:label="@string/title_activity_calls" >
+        </activity>
         <activity android:name=".MediaAndRadioHomePageActivity"
             android:label="MediaAndRadioHomePageActivity"></activity>
     </application>

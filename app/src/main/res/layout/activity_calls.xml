@@ -126,27 +126,26 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_mic"
+        android:id="@+id/mic_button"
+        android:background="@drawable/mic_xhdpi"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="81dp"
-        android:background="@drawable/mic_xhdpi"/>
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_settings"
+        android:id="@+id/settings_button"
         android:layout_below="@+id/button_nine"
-        android:layout_alignRight="@+id/button_mic"
-        android:layout_alignEnd="@+id/button_mic"
+        android:layout_alignRight="@+id/mic_button"
+        android:layout_alignEnd="@+id/mic_button"
         android:background="@drawable/settings_xhdpi"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_back"
-        android:layout_alignBottom="@+id/button_mic"
+        android:id="@+id/back_button"
+        android:layout_alignBottom="@+id/mic_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@drawable/back_xhdpi"/>
@@ -154,9 +153,9 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_help"
+        android:id="@+id/help_button"
         android:background="@drawable/help_xhdpi"
-        android:layout_alignTop="@+id/button_settings"
+        android:layout_alignTop="@+id/settings_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -164,12 +163,24 @@
         android:layout_width="500dp"
         android:layout_height="100dp"
         android:id="@+id/mainTV"
-        android:layout_alignTop="@+id/button_back"
+        android:background="@color/primary_material_light"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/button_one"
         android:layout_alignStart="@+id/button_one"
-        android:background="@color/primary_material_light"
         android:layout_alignRight="@+id/button_three"
-        android:layout_alignEnd="@+id/button_three" />
+        android:layout_alignEnd="@+id/button_three"
+        android:layout_marginTop="@dimen/abc_action_bar_progress_bar_size"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calling_button"
+        android:background="@drawable/call"
+        android:layout_above="@+id/button_one"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/abc_action_bar_progress_bar_size"/>
 
 
 </RelativeLayout>
