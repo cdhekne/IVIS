@@ -26,6 +26,8 @@ public class CarControls extends ActionBarActivity implements View.OnClickListen
         setContentView(R.layout.activity_car_controls);
 
         front_wiper = (ImageButton) findViewById(R.id.front_wiper_button);
+        front_wiper_off = (ImageButton)findViewById(R.id.front_wiper_off_button);
+
         front_wiper_1 = (ImageButton) findViewById(R.id.front_wiper_1_button);
         front_wiper_2 = (ImageButton) findViewById(R.id.front_wiper_2_button);
         front_wiper_3 = (ImageButton) findViewById(R.id.front_wiper_3_button);
@@ -38,6 +40,7 @@ public class CarControls extends ActionBarActivity implements View.OnClickListen
         settings = (ImageButton) findViewById(R.id.settings_button);
         help = (ImageButton) findViewById(R.id.help_button);
         back = (ImageButton) findViewById(R.id.back_button);
+        home = (ImageButton)findViewById(R.id.home_button);
 
         back.setOnClickListener(this);
         help.setOnClickListener(this);
@@ -47,6 +50,13 @@ public class CarControls extends ActionBarActivity implements View.OnClickListen
         low_beam.setOnClickListener(this);
         rear_wiper_on.setOnClickListener(this);
         rear_wiper_off.setOnClickListener(this);
+        home.setOnClickListener(this);
+        front_wiper_off.setOnClickListener(this);
+        front_wiper_1.setOnClickListener(this);
+        front_wiper_2.setOnClickListener(this);
+        front_wiper_3.setOnClickListener(this);
+        rear_wiper_off.setOnClickListener(this);
+        rear_wiper_on.setOnClickListener(this);
     }
 
     @Override
@@ -73,10 +83,48 @@ public class CarControls extends ActionBarActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (v.getId()==mic.getId()){
+        if (v.getId() == mic.getId()) {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
+        } else if (v.getId() == back.getId()) {
+            Intent intent = new Intent(CarControls.this, LandingPage.class);
+            startActivity(intent);
+        } else if (v.getId() == home.getId()) {
+            Intent intent = new Intent(CarControls.this, LandingPage.class);
+            startActivity(intent);
+        } else if (v.getId() == low_beam.getId()) {
+            low_beam.setVisibility(View.INVISIBLE);
+            high_beam.setVisibility(View.VISIBLE);
+        } else if (v.getId() == high_beam.getId()) {
+            high_beam.setVisibility(View.INVISIBLE);
+            low_beam.setVisibility(View.VISIBLE);
+        } else if (v.getId() == rear_wiper_off.getId()) {
+            rear_wiper_on.setVisibility(View.VISIBLE);
+            rear_wiper_off.setVisibility(View.INVISIBLE);
+        } else if (v.getId() == rear_wiper_on.getId()) {
+            rear_wiper_off.setVisibility(View.VISIBLE);
+            rear_wiper_on.setVisibility(View.INVISIBLE);
+        } else if (v.getId() == front_wiper_off.getId()) {
+            front_wiper_off.setBackgroundResource(R.drawable.wiper_off_rear_xhdpi);
+            front_wiper_1.setBackgroundResource(R.drawable.wiper1_xhdpi);
+            front_wiper_2.setBackgroundResource(R.drawable.wiper2_xhdpi);
+            front_wiper_3.setBackgroundResource(R.drawable.wiper3_xhdpi);
+        } else if (v.getId() == front_wiper_1.getId()) {
+            front_wiper_off.setBackgroundResource(R.drawable.wiper_off_xhdpi);
+            front_wiper_1.setBackgroundResource(R.drawable.wiper_1_active_xhdpi);
+            front_wiper_2.setBackgroundResource(R.drawable.wiper2_xhdpi);
+            front_wiper_3.setBackgroundResource(R.drawable.wiper3_xhdpi);
+        } else if (v.getId() == front_wiper_2.getId()) {
+            front_wiper_off.setBackgroundResource(R.drawable.wiper_off_xhdpi);
+            front_wiper_1.setBackgroundResource(R.drawable.wiper1_xhdpi);
+            front_wiper_2.setBackgroundResource(R.drawable.wiper_2_active_xhdpi);
+            front_wiper_3.setBackgroundResource(R.drawable.wiper3_xhdpi);
+        } else if (v.getId() == front_wiper_3.getId()) {
+            front_wiper_off.setBackgroundResource(R.drawable.wiper_off_xhdpi);
+            front_wiper_1.setBackgroundResource(R.drawable.wiper1_xhdpi);
+            front_wiper_2.setBackgroundResource(R.drawable.wiper2_xhdpi);
+            front_wiper_3.setBackgroundResource(R.drawable.wiper_3_active_xhdpi);
         }
     }
 
