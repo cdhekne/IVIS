@@ -159,9 +159,6 @@ public class CallsActivity extends ActionBarActivity implements View.OnClickList
                 Intent goToHomeIntent = new Intent(CallsActivity.this, CallAndContactsHomePageActivity.class);
                 startActivity(goToHomeIntent);
             }
-            else if(spokenText.matches("[0-9]+")){
-                mainTV.append(spokenText);
-            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
