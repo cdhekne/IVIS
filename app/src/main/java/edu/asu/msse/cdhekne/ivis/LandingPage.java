@@ -77,8 +77,8 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
             startActivity(intent);
         }
         else if(v.getId()==climate.getId()){
-            /*Intent intent = new Intent(LandingPage.this,);
-            startActivity(intent);*/
+            Intent goToClimateIntent = new Intent(LandingPage.this,ClimateControlActivity.class);
+            startActivity(goToClimateIntent);
         }
         else if(v.getId()==apps.getId()){
             /*Intent intent = new Intent(LandingPage.this,);
@@ -104,8 +104,8 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
 //            Log.d("Speech Output:---->>>>>",spokenText);
             if(spokenText.contains("navigate")){
 
-                /*Intent goToNavigationIntent = new Intent();
-                startActivity(goToNavigationIntent);*/
+                Intent goToNavigationIntent = new Intent(LandingPage.this,NavigationActivity.class);
+                startActivity(goToNavigationIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("media")){
@@ -124,8 +124,8 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("climate")){
-                /*Intent goToClimateIntent = new Intent();
-                startActivity(goToClimateIntent);*/
+                Intent goToClimateIntent = new Intent(LandingPage.this,ClimateControlActivity.class);
+                startActivity(goToClimateIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("apps")){
