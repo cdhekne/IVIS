@@ -131,6 +131,7 @@ public class MediaActivity  extends ActionBarActivity implements View.OnClickLis
             }
             else if(spokenText.contains("home")){
                 Intent goToHomeIntent = new Intent(MediaActivity.this, LandingPage.class);
+                goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(goToHomeIntent);
             }
         }

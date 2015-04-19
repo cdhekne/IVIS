@@ -88,11 +88,11 @@ public class CarControls extends ActionBarActivity implements View.OnClickListen
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
         } else if (v.getId() == back.getId()) {
-            Intent intent = new Intent(CarControls.this, LandingPage.class);
-            startActivity(intent);
+            this.finish();
         } else if (v.getId() == home.getId()) {
-            Intent intent = new Intent(CarControls.this, LandingPage.class);
-            startActivity(intent);
+            Intent goToHomeIntent = new Intent(CarControls.this, LandingPage.class);
+            goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(goToHomeIntent);
         } else if (v.getId() == low_beam.getId()) {
             low_beam.setVisibility(View.INVISIBLE);
             high_beam.setVisibility(View.VISIBLE);

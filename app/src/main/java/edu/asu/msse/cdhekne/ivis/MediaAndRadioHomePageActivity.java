@@ -51,8 +51,9 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
         }
 
         if(v.getId() == home_button.getId()){
-            Intent intent = new Intent(MediaAndRadioHomePageActivity.this, LandingPage.class);
-            startActivity(intent);
+            Intent goToHomeIntent = new Intent(MediaAndRadioHomePageActivity.this, LandingPage.class);
+            goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(goToHomeIntent);
         }
 
         if(v.getId() == back_button.getId()){
@@ -60,13 +61,11 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
         }
 
         if(v.getId() == media_button.getId()){
-
             Intent intent = new Intent(MediaAndRadioHomePageActivity.this, MediaActivity.class);
             startActivity(intent);
         }
 
         if(v.getId() == radio_button.getId()){
-
             Intent intent = new Intent(MediaAndRadioHomePageActivity.this, RadioActivity.class);
             startActivity(intent);
         }
@@ -82,10 +81,9 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
                     RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
 //            Log.d("Speech Output:---->>>>>",spokenText);
-            if(spokenText.contains("navigate")){
-
-                /*Intent goToNavigationIntent = new Intent();
-                startActivity(goToNavigationIntent);*/
+            if(spokenText.contains("radio")){
+                Intent goToRadio = new Intent(MediaAndRadioHomePageActivity.this, RadioActivity.class);
+                startActivity(goToRadio);
                 Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("media")){
@@ -93,25 +91,13 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
                 startActivity(goToMediaIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
-            else if(spokenText.contains("phone")|| spokenText.contains("call")){
-                Intent goToPhoneIntent = new Intent(MediaAndRadioHomePageActivity.this, CallsActivity.class);
-                startActivity(goToPhoneIntent);
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+            else if(spokenText.contains("back")){
+               this.finish();
             }
-            else if(spokenText.contains("controls")){
-                Intent goToControlsIntent = new Intent(MediaAndRadioHomePageActivity.this, CarControls.class);
-                startActivity(goToControlsIntent);
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("climate")){
-                /*Intent goToClimateIntent = new Intent();
-                startActivity(goToClimateIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("apps")){
-                /*Intent goToAppsIntent = new Intent();
-                startActivity(goToAppsIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+            else if(spokenText.contains("home")){
+                Intent goToHomeIntent = new Intent(MediaAndRadioHomePageActivity.this, LandingPage.class);
+                goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(goToHomeIntent);
             }
 
         }

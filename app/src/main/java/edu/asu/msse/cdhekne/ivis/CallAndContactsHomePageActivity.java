@@ -49,23 +49,19 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
         }
 
         if(v.getId() == home_button.getId()){
-
-            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
-            startActivity(intent);
+            Intent goToHomeIntent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
+            goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(goToHomeIntent);
         }
 
         if(v.getId() == back_button.getId()){
-
-            Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
-            startActivity(intent);
+            this.finish();
         }
 
         if(v.getId() == call_button.getId()){
-
             Intent intent = new Intent(CallAndContactsHomePageActivity.this, CallsActivity.class);
             startActivity(intent);
         }
-
         /*if(v.getId() == contacts_button.getId()){
 
             Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
@@ -81,46 +77,18 @@ public class CallAndContactsHomePageActivity extends ActionBarActivity implement
                     RecognizerIntent.EXTRA_RESULTS);
             String spokenText = results.get(0);
 //            Log.d("Speech Output:---->>>>>",spokenText);
-            if(spokenText.contains("navigate")){
-
-                /*Intent goToNavigationIntent = new Intent();
-                startActivity(goToNavigationIntent);*/
-                Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("media")){
-                /*Intent goToMediaIntent = new Intent();
-                startActivity(goToMediaIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("call")){
-                /*Intent goToPhoneIntent = new Intent();
-                startActivity(goToPhoneIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("controls")){
-                /*Intent goToControlsIntent = new Intent();
-                startActivity(goToControlsIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("climate")){
-                /*Intent goToClimateIntent = new Intent();
-                startActivity(goToClimateIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("apps")){
-                /*Intent goToAppsIntent = new Intent();
-                startActivity(goToAppsIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
-            }
-            else if(spokenText.contains("phone")){
+            if(spokenText.contains("phone")){
                 Intent goToAppsPhone = new Intent(CallAndContactsHomePageActivity.this, CallsActivity.class);
                 startActivity(goToAppsPhone);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("home")){
-                Intent intent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+                Intent goToHomeIntent = new Intent(CallAndContactsHomePageActivity.this, LandingPage.class);
+                goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(goToHomeIntent);
+            }
+            else if(spokenText.contains("back")){
+                this.finish();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

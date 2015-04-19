@@ -70,8 +70,7 @@ public class CallsActivity extends ActionBarActivity implements View.OnClickList
         }
 
         if(v.getId() == back_button.getId()){
-            Intent intent = new Intent(CallsActivity.this, CallAndContactsHomePageActivity.class);
-            startActivity(intent);
+           this.finish();
         }
 
         if(v.getId() == one.getId()){
