@@ -1,0 +1,128 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="edu.asu.msse.cdhekne.ivis.ClimateControlActivity"
+    android:background="@drawable/background">
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mic_button"
+        android:background="@drawable/mic_xhdpi"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settings_button"
+        android:background="@drawable/settings_xhdpi"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/help_button"
+        android:background="@drawable/help_xhdpi"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_button"
+        android:background="@drawable/back_xhdpi"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/home_button"
+        android:layout_alignBottom="@+id/settings_button"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/home_xhdpi"/>
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/eco_button"
+        android:background="@drawable/ecoactive"
+        android:layout_below="@+id/mic_button"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/fan_button"
+        android:background="@drawable/fan"
+        android:layout_above="@+id/climatethree_button"
+        android:layout_alignLeft="@+id/home_button"
+        android:layout_alignStart="@+id/home_button" />
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/min_button"
+        android:background="@drawable/min"
+        android:layout_alignTop="@+id/eco_button"
+        android:layout_toLeftOf="@+id/climatetwo_button"
+        android:layout_toStartOf="@+id/climatetwo_button" />
+
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/max_button"
+        android:background="@drawable/max"
+        android:layout_marginRight="85dp"
+        android:layout_marginEnd="85dp"
+        android:layout_alignTop="@+id/eco_button"
+        android:layout_toLeftOf="@+id/mic_button"
+        android:layout_toStartOf="@+id/mic_button" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/climateone_button"
+        android:background="@drawable/climate_one"
+        android:layout_alignTop="@+id/climatetwo_button"
+        android:layout_alignLeft="@+id/min_button"
+        android:layout_alignStart="@+id/min_button" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/climatetwo_button"
+        android:background="@drawable/climate_two"
+        android:layout_alignTop="@+id/climatethree_button"
+        android:layout_toLeftOf="@+id/eco_button"
+        android:layout_toStartOf="@+id/eco_button" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/climatethree_button"
+        android:background="@drawable/climate_three"
+        android:layout_above="@+id/home_button"
+        android:layout_toLeftOf="@+id/max_button"
+        android:layout_toStartOf="@+id/max_button" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/climatefour_button"
+        android:background="@drawable/climate_four"
+        android:layout_above="@+id/settings_button"
+        android:layout_alignRight="@+id/max_button"
+        android:layout_alignEnd="@+id/max_button" />
+
+</RelativeLayout>

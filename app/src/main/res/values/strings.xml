@@ -8,4 +8,5 @@
     <string name="title_activity_media_and_radio_home_page">MediaAndRadioHomePageActivity</string>
     <string name="title_activity_car_Controls">CarControlsActivity</string>
     <string name="title_activity_calls">CallsActivity</string>
+    <string name="title_activity_climate_control">ClimateControlActivity</string>
 </resources>

@@ -29,8 +29,13 @@
             android:name=".CallsActivity"
             android:label="@string/title_activity_calls" >
         </activity>
-        <activity android:name=".MediaAndRadioHomePageActivity"
-            android:label="MediaAndRadioHomePageActivity"></activity>
+        <activity
+            android:name=".MediaAndRadioHomePageActivity"
+            android:label="MediaAndRadioHomePageActivity" />
+        <activity
+            android:name=".ClimateControlActivity"
+            android:label="@string/title_activity_climate_control" >
+        </activity>
     </application>
 
 </manifest>
