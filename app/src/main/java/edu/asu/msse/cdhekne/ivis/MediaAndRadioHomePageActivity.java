@@ -113,6 +113,7 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
                 startActivity(goToAppsIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
+
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

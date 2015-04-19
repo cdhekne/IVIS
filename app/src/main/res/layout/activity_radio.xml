@@ -130,7 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/seekbar"
-        android:background="@drawable/seekbar"
+        android:background="@drawable/seeker_line"
 
 
         android:layout_below="@+id/back2"
@@ -139,6 +139,7 @@
         android:layout_marginTop="75dp"
         android:layout_alignLeft="@+id/back2"
         android:layout_alignStart="@+id/back2" />
+
 
     <ImageButton
         android:layout_width="wrap_content"
