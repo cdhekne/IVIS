@@ -1,11 +1,9 @@
 package edu.asu.msse.cdhekne.ivis;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,86 +12,51 @@ import android.widget.Toast;
 
 import java.util.List;
 
+/**
+ * Created by japas_000 on 4/18/2015.
+ * Copyright 2015 Japa Swadia
+ * Right to Use: Public
+ * Purpose: SER 598 Mobile Systems course, Android app development
+ *
+ * @author Japa Swadia, Japa.Swadia@asu.edu,
+ *         Graduate Student, Software Engineering, CIDSE,
+ *         Arizona State University
+ * @version 18 Apr 2015
+ */
+public class NavigationActivity extends ActionBarActivity implements View.OnClickListener {
 
-public class LandingPage extends ActionBarActivity implements View.OnClickListener {
-
-    private ImageButton mic_button,car_controls,apps,climate,phone,navigation,media,settings,help;
+    private ImageButton mic_button;
+    private ImageButton back_button;
+    //private ImageButton play, pause, stop, seek_forw, seek_back;
     private static final int SPEECH_REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landing_page);
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        setContentView(R.layout.activity_navigation);
 
-        mic_button =(ImageButton)findViewById(R.id.mic_button);
+        mic_button = (ImageButton) findViewById(R.id.mic_button);
         mic_button.setOnClickListener(this);
 
-        navigation = (ImageButton)findViewById(R.id.nav_button);
-        navigation.setOnClickListener(this);
+        back_button = (ImageButton) findViewById(R.id.back_button);
+        back_button.setOnClickListener(this);
 
-        media= (ImageButton)findViewById(R.id.media_button);
-        media.setOnClickListener(this);
 
-        phone = (ImageButton)findViewById(R.id.call_button);
-        phone.setOnClickListener(this);
 
-        car_controls = (ImageButton)findViewById(R.id.carControls_button);
-        car_controls.setOnClickListener(this);
-
-        climate = (ImageButton)findViewById(R.id.climate_button);
-        climate.setOnClickListener(this);
-
-        apps = (ImageButton)findViewById(R.id.apps_button);
-        apps.setOnClickListener(this);
-
-        /*settings = (ImageButton)findViewById(R.id.settings_button);
-        settings.setOnClickListener(this);*/
-/*
-        help = (ImageButton)findViewById(R.id.help_button);
-        help.setOnClickListener(this);*/
     }
 
     @Override
-    public void onClick(View v){
-        if(v.getId()==mic_button.getId()){
+    public void onClick(View v) {
+        if (v.getId() == mic_button.getId()) {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
         }
-        else if(v.getId()==navigation.getId()){
-            Intent intent = new Intent(LandingPage.this, NavigationActivity.class);
-            startActivity(intent);
-        }
-        else if(v.getId()==media.getId()){
-            Intent intent = new Intent(LandingPage.this,MediaAndRadioHomePageActivity.class);
-            startActivity(intent);
-        }
-        else if(v.getId()==phone.getId()){
-            Intent intent = new Intent(LandingPage.this,CallAndContactsHomePageActivity.class);
-            startActivity(intent);
-        }
-        else if(v.getId()==car_controls.getId()){
-            Intent intent = new Intent(LandingPage.this,CarControls.class);
-            startActivity(intent);
-        }
-        else if(v.getId()==climate.getId()){
-            /*Intent intent = new Intent(LandingPage.this,);
-            startActivity(intent);*/
-        }
-        else if(v.getId()==apps.getId()){
-            /*Intent intent = new Intent(LandingPage.this,);
-            startActivity(intent);*/
-        }
-        /*else if(v.getId()==settings.getId()){
-            *//*Intent intent = new Intent(LandingPage.this,);
-            startActivity(intent);*//*
-        }
-        else if(v.getId()==help.getId()){
-            *//*Intent intent = new Intent(LandingPage.this,);
-            startActivity(intent);*//*
-        }*/
-    }
 
+        if (v.getId() == back_button.getId()) {
+           this.finish();
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
@@ -106,20 +69,20 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
 
                 /*Intent goToNavigationIntent = new Intent();
                 startActivity(goToNavigationIntent);*/
-                Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("media")){
-                Intent goToMediaIntent = new Intent(LandingPage.this, MediaAndRadioHomePageActivity.class);
+                Intent goToMediaIntent = new Intent(NavigationActivity.this, MediaActivity.class);
                 startActivity(goToMediaIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("phone")|| spokenText.contains("call")){
-                Intent goToPhoneIntent = new Intent(LandingPage.this, CallAndContactsHomePageActivity.class);
+                Intent goToPhoneIntent = new Intent(NavigationActivity.this, CallsActivity.class);
                 startActivity(goToPhoneIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("controls")){
-                Intent goToControlsIntent = new Intent(LandingPage.this,CarControls.class);
+                Intent goToControlsIntent = new Intent(NavigationActivity.this, CarControls.class);
                 startActivity(goToControlsIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
@@ -133,14 +96,20 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
                 startActivity(goToAppsIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
+            else if(spokenText.contains("home")){
+                Intent goToHomeIntent = new Intent(NavigationActivity.this, LandingPage.class);
+                goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(goToHomeIntent);
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_landing_page, menu);
+        getMenuInflater().inflate(R.menu.menu_calls, menu);
         return true;
     }
 
@@ -158,4 +127,6 @@ public class LandingPage extends ActionBarActivity implements View.OnClickListen
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -36,6 +36,14 @@
             android:name=".ClimateControlActivity"
             android:label="@string/title_activity_climate_control" >
         </activity>
+        <activity android:name=".MediaActivity"
+            android:label="MediaActivity"></activity>
+
+        <activity android:name=".RadioActivity"
+            android:label="RadioActivity"></activity>
+        
+        <activity android:name=".NavigationActivity"
+            android:label="NavigationActivity"></activity>
     </application>
 
 </manifest>

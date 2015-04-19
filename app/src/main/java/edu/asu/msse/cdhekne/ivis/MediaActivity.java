@@ -8,107 +8,86 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 
-public class CallsActivity extends ActionBarActivity implements View.OnClickListener {
+/**
+ * Created by japas_000 on 4/17/2015.
+ * Copyright 2015 Japa Swadia
+ * Right to Use: Public
+ * Purpose: SER 598 Mobile Systems course, Android app development
+ *
+ * @author Japa Swadia, Japa.Swadia@asu.edu,
+ *         Graduate Student, Software Engineering, CIDSE,
+ *         Arizona State University
+ * @version 17 Apr 2015
+ */
+public class MediaActivity  extends ActionBarActivity implements View.OnClickListener {
 
     private ImageButton mic_button;
     private ImageButton back_button;
-    private ImageButton one, two, three, four, five, six, seven, eight, nine, asterisk, hash, zero;
-    private TextView mainTV;
+    private ImageButton play, pause, stop, forw, back;
     private static final int SPEECH_REQUEST_CODE = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calls);
+        setContentView(R.layout.activity_media_new);
 
-        mic_button =(ImageButton)findViewById(R.id.mic_button);
+        mic_button = (ImageButton) findViewById(R.id.mic_button);
         mic_button.setOnClickListener(this);
 
-        back_button = (ImageButton)findViewById(R.id.back_button);
+        back_button = (ImageButton) findViewById(R.id.back_button);
         back_button.setOnClickListener(this);
 
-        mainTV = (TextView)findViewById(R.id.mainTV);
+        play = (ImageButton) findViewById(R.id.play);
+        play.setOnClickListener(this);
+        stop = (ImageButton) findViewById(R.id.stop);
+        stop.setOnClickListener(this);
+        forw = (ImageButton) findViewById(R.id.forw2);
+        forw.setOnClickListener(this);
+        back = (ImageButton) findViewById(R.id.back2);
+        back.setOnClickListener(this);
+        pause = (ImageButton) findViewById(R.id.pause);
+        pause.setOnClickListener(this);
 
-        one = (ImageButton)findViewById(R.id.button_one);
-        one.setOnClickListener(this);
-        two = (ImageButton)findViewById(R.id.button_two);
-        two.setOnClickListener(this);
-        three = (ImageButton)findViewById(R.id.button_three);
-        three.setOnClickListener(this);
-        four = (ImageButton)findViewById(R.id.button_four);
-        four.setOnClickListener(this);
-        five = (ImageButton)findViewById(R.id.button_five);
-        five.setOnClickListener(this);
-        six = (ImageButton)findViewById(R.id.button_six);
-        six.setOnClickListener(this);
-        seven = (ImageButton)findViewById(R.id.button_seven);
-        seven.setOnClickListener(this);
-        eight = (ImageButton)findViewById(R.id.button_eight);
-        eight.setOnClickListener(this);
-        nine = (ImageButton)findViewById(R.id.button_nine);
-        nine.setOnClickListener(this);
-        asterisk = (ImageButton)findViewById(R.id.button_asterisk);
-        asterisk.setOnClickListener(this);
-        hash = (ImageButton)findViewById(R.id.button_hash);
-        hash.setOnClickListener(this);
-        zero = (ImageButton)findViewById(R.id.button_zero);
-        zero.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v){
-        if(v.getId()==mic_button.getId()){
+    public void onClick(View v) {
+        if (v.getId() == mic_button.getId()) {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
         }
 
-        if(v.getId() == back_button.getId()){
-           this.finish();
+        if (v.getId() == back_button.getId()) {
+            Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
+            startActivity(intent);
+
         }
 
-        if(v.getId() == one.getId()){
-            mainTV.append("1");
+        if (v.getId() == play.getId()) {
+            int vis = 0;
+            //Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
+            //startActivity(intent);
+            play.setVisibility(View.INVISIBLE);
+            pause.setVisibility(View.VISIBLE);
+
         }
-        if(v.getId() == two.getId()){
-            mainTV.append("2");
+        if (v.getId() == pause.getId()) {
+            int vis = 0;
+            //Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
+            //startActivity(intent);
+            pause.setVisibility(View.INVISIBLE);
+            play.setVisibility(View.VISIBLE);
+
         }
-        if(v.getId() == three.getId()){
-            mainTV.append("3");
-        }
-        if(v.getId() == four.getId()){
-            mainTV.append("4");
-        }
-        if(v.getId() == five.getId()){
-            mainTV.append("5");
-        }
-        if(v.getId() == six.getId()){
-            mainTV.append("6");
-        }
-        if(v.getId() == seven.getId()){
-            mainTV.append("7");
-        }
-        if(v.getId() == eight.getId()){
-            mainTV.append("8");
-        }
-        if(v.getId() == nine.getId()){
-            mainTV.append("9");
-        }
-        if(v.getId() == zero.getId()){
-            mainTV.append("0");
-        }
-        if(v.getId() == asterisk.getId()){
-            mainTV.append("*");
-        }
-        if(v.getId() == hash.getId()){
-            mainTV.append("#");
-        }
+
+
     }
 
     @Override
@@ -131,8 +110,8 @@ public class CallsActivity extends ActionBarActivity implements View.OnClickList
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("phone")|| spokenText.contains("call")){
-                /*Intent goToPhoneIntent = new Intent();
-                startActivity(goToPhoneIntent);*/
+                Intent goToPhoneIntent = new Intent(MediaActivity.this, CallsActivity.class);
+                startActivity(goToPhoneIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("controls")){
@@ -151,20 +130,13 @@ public class CallsActivity extends ActionBarActivity implements View.OnClickList
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("home")){
-                Intent goToHomeIntent = new Intent(CallsActivity.this, LandingPage.class);
+                Intent goToHomeIntent = new Intent(MediaActivity.this, LandingPage.class);
+                goToHomeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(goToHomeIntent);
-            }
-            else if(spokenText.contains("back")){
-                Intent goToHomeIntent = new Intent(CallsActivity.this, CallAndContactsHomePageActivity.class);
-                startActivity(goToHomeIntent);
-            }
-            else if(spokenText.matches("[0-9]+")){
-                mainTV.append(spokenText);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
 
 
     @Override
@@ -188,4 +160,5 @@ public class CallsActivity extends ActionBarActivity implements View.OnClickList
 
         return super.onOptionsItemSelected(item);
     }
+
 }
