@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MediaAndRadioHomePageActivity extends ActionBarActivity implements View.OnClickListener {
 
-    private ImageButton mic_button;
+    private ImageButton mic_button, back_button;
     private ImageButton home_button;
     private ImageButton radio_button;
     private ImageButton media_button;
@@ -31,11 +31,14 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
         home_button = (ImageButton)findViewById(R.id.home_button);
         home_button.setOnClickListener(this);
 
-        radio_button = (ImageButton) findViewById(R.id.radio);
+        radio_button = (ImageButton) findViewById(R.id.radio_button);
         radio_button.setOnClickListener(this);
 
         media_button = (ImageButton) findViewById(R.id.media_button);
         media_button.setOnClickListener(this);
+
+        back_button = (ImageButton)findViewById(R.id.back_button);
+        back_button.setOnClickListener(this);
     }
 
 
@@ -48,9 +51,12 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
         }
 
         if(v.getId() == home_button.getId()){
-
             Intent intent = new Intent(MediaAndRadioHomePageActivity.this, LandingPage.class);
             startActivity(intent);
+        }
+
+        if(v.getId() == back_button.getId()){
+            this.finish();
         }
 
         if(v.getId() == media_button.getId()){

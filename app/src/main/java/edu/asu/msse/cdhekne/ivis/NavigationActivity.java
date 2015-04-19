@@ -54,9 +54,7 @@ public class NavigationActivity extends ActionBarActivity implements View.OnClic
         }
 
         if (v.getId() == back_button.getId()) {
-            Intent intent = new Intent(NavigationActivity.this, MediaAndRadioHomePageActivity.class);
-            startActivity(intent);
-
+           this.finish();
         }
     }
     @Override

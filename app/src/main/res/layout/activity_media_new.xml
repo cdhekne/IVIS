@@ -14,7 +14,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_settings"
+        android:id="@+id/settings_button"
         android:background="@drawable/settings_xhdpi"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -24,18 +24,18 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_mic"
+        android:id="@+id/mic_button"
 
 
         android:background="@drawable/mic_xhdpi"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button_settings"
-        android:layout_alignStart="@+id/button_settings" />
+        android:layout_alignLeft="@+id/settings_button"
+        android:layout_alignStart="@+id/settings_button" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_back"
+        android:id="@+id/back_button"
         android:background="@drawable/back_xhdpi"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -44,7 +44,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_help"
+        android:id="@+id/help_button"
         android:background="@drawable/help_xhdpi"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -55,9 +55,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/back2"
         android:background="@drawable/back2_xhdpi"
-        android:layout_below="@+id/button_back"
-        android:layout_toRightOf="@+id/button_back"
-        android:layout_toEndOf="@+id/button_back"
+        android:layout_below="@+id/back_button"
+        android:layout_toRightOf="@+id/back_button"
+        android:layout_toEndOf="@+id/back_button"
         android:layout_marginLeft="70dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="150dp" />
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/song"
         android:background="@drawable/song_name"
-        android:layout_alignTop="@+id/button_back"
+        android:layout_alignTop="@+id/back_button"
         android:layout_alignLeft="@+id/back2"
         android:layout_alignStart="@+id/back2"
         android:layout_toStartOf="@+id/forw2"
@@ -163,8 +163,8 @@
         android:id="@+id/volume"
         android:background="@drawable/volume_bar"
         android:paddingRight="50pt"
-        android:layout_toLeftOf="@+id/button_mic"
-        android:layout_above="@+id/button_settings"
-        android:layout_below="@+id/button_mic" />
+        android:layout_toLeftOf="@+id/mic_button"
+        android:layout_above="@+id/settings_button"
+        android:layout_below="@+id/mic_button" />
 
 </RelativeLayout>

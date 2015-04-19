@@ -15,7 +15,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_settings"
+        android:id="@+id/settings_button"
         android:background="@drawable/settings_xhdpi"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -25,18 +25,18 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_mic"
+        android:id="@+id/mic_button"
 
 
         android:background="@drawable/mic_xhdpi"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button_settings"
-        android:layout_alignStart="@+id/button_settings" />
+        android:layout_alignLeft="@+id/settings_button"
+        android:layout_alignStart="@+id/settings_button" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_back"
+        android:id="@+id/back_button"
         android:background="@drawable/back_xhdpi"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -45,7 +45,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_help"
+        android:id="@+id/help_button"
         android:background="@drawable/help_xhdpi"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -56,17 +56,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/map"
         android:src="@drawable/mapimage"
-        android:layout_above="@+id/button_settings"
-        android:layout_toRightOf="@+id/button_help"
-        android:layout_toLeftOf="@+id/button_settings"
-        android:layout_toStartOf="@+id/button_settings" />
+        android:layout_above="@+id/settings_button"
+        android:layout_toRightOf="@+id/help_button"
+        android:layout_toLeftOf="@+id/settings_button"
+        android:layout_toStartOf="@+id/settings_button" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/button_settings"
+        android:layout_toLeftOf="@+id/settings_button"
         android:layout_alignLeft="@+id/map"
         android:layout_alignStart="@+id/map"
         android:layout_below="@+id/map">
