@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-
 /**
  * Created by japas_000 on 4/18/2015.
  * Copyright 2015 Japa Swadia
@@ -24,17 +23,17 @@ import java.util.List;
  *         Arizona State University
  * @version 18 Apr 2015
  */
-public class RadioActivity extends ActionBarActivity implements View.OnClickListener {
+public class NavigationActivity extends ActionBarActivity implements View.OnClickListener {
 
     private ImageButton mic_button;
     private ImageButton back_button;
-    private ImageButton play, pause, stop, seek_forw, seek_back;
+    //private ImageButton play, pause, stop, seek_forw, seek_back;
     private static final int SPEECH_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_radio);
+        setContentView(R.layout.activity_navigation);
 
         mic_button = (ImageButton) findViewById(R.id.mic_button);
         mic_button.setOnClickListener(this);
@@ -42,16 +41,7 @@ public class RadioActivity extends ActionBarActivity implements View.OnClickList
         back_button = (ImageButton) findViewById(R.id.back_button);
         back_button.setOnClickListener(this);
 
-        play = (ImageButton) findViewById(R.id.play);
-        play.setOnClickListener(this);
-        stop = (ImageButton) findViewById(R.id.stop);
-        stop.setOnClickListener(this);
-        seek_forw = (ImageButton) findViewById(R.id.forw2);
-        seek_forw.setOnClickListener(this);
-        seek_back = (ImageButton) findViewById(R.id.back2);
-        seek_back.setOnClickListener(this);
-        pause = (ImageButton) findViewById(R.id.pause);
-        pause.setOnClickListener(this);
+
 
     }
 
@@ -64,31 +54,11 @@ public class RadioActivity extends ActionBarActivity implements View.OnClickList
         }
 
         if (v.getId() == back_button.getId()) {
-            Intent intent = new Intent(RadioActivity.this, MediaAndRadioHomePageActivity.class);
+            Intent intent = new Intent(NavigationActivity.this, MediaAndRadioHomePageActivity.class);
             startActivity(intent);
 
         }
-
-        if (v.getId() == play.getId()) {
-            int vis = 0;
-            //Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
-            //startActivity(intent);
-            play.setVisibility(View.INVISIBLE);
-            pause.setVisibility(View.VISIBLE);
-
-        }
-        if (v.getId() == pause.getId()) {
-            int vis = 0;
-            //Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
-            //startActivity(intent);
-            pause.setVisibility(View.INVISIBLE);
-            play.setVisibility(View.VISIBLE);
-
-        }
-
-
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
@@ -104,17 +74,17 @@ public class RadioActivity extends ActionBarActivity implements View.OnClickList
                 Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("media")){
-                Intent goToMediaIntent = new Intent(RadioActivity.this, MediaActivity.class);
+                Intent goToMediaIntent = new Intent(NavigationActivity.this, MediaActivity.class);
                 startActivity(goToMediaIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("phone")|| spokenText.contains("call")){
-                Intent goToPhoneIntent = new Intent(RadioActivity.this, CallsActivity.class);
+                Intent goToPhoneIntent = new Intent(NavigationActivity.this, CallsActivity.class);
                 startActivity(goToPhoneIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("controls")){
-                Intent goToControlsIntent = new Intent(RadioActivity.this, CarControls.class);
+                Intent goToControlsIntent = new Intent(NavigationActivity.this, CarControls.class);
                 startActivity(goToControlsIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
@@ -129,7 +99,7 @@ public class RadioActivity extends ActionBarActivity implements View.OnClickList
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("home")){
-                Intent goToHomeIntent = new Intent(RadioActivity.this, LandingPage.class);
+                Intent goToHomeIntent = new Intent(NavigationActivity.this, LandingPage.class);
                 startActivity(goToHomeIntent);
             }
         }
@@ -158,10 +128,6 @@ public class RadioActivity extends ActionBarActivity implements View.OnClickList
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
-
 
 
 }

@@ -10,4 +10,6 @@
     <string name="title_activity_calls">CallsActivity</string>
     <string name="title_activity_media">MediaActivity</string>
     <string name="title_activity_radio">RadioActivity</string>
+    <string name="title_activity_nav">NavigationActivity</string>
+
 </resources>
