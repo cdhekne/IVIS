@@ -13,56 +13,78 @@ import android.widget.Toast;
 import java.util.List;
 
 
-public class MediaAndRadioHomePageActivity extends ActionBarActivity implements View.OnClickListener {
+/**
+ * Created by japas_000 on 4/17/2015.
+ * Copyright 2015 Japa Swadia
+ * Right to Use: Public
+ * Purpose: SER 598 Mobile Systems course, Android app development
+ *
+ * @author Japa Swadia, Japa.Swadia@asu.edu,
+ *         Graduate Student, Software Engineering, CIDSE,
+ *         Arizona State University
+ * @version 17 Apr 2015
+ */
+public class MediaActivity  extends ActionBarActivity implements View.OnClickListener {
 
     private ImageButton mic_button;
-    private ImageButton home_button;
-    private ImageButton radio_button;
-    private ImageButton media_button;
+    private ImageButton back_button;
+    private ImageButton play, pause, stop, forw, back;
     private static final int SPEECH_REQUEST_CODE = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_radio_and_media_home_page);
-        mic_button =(ImageButton)findViewById(R.id.mic_button);
+        setContentView(R.layout.activity_media_new);
+
+        mic_button = (ImageButton) findViewById(R.id.mic_button);
         mic_button.setOnClickListener(this);
 
-        home_button = (ImageButton)findViewById(R.id.home_button);
-        home_button.setOnClickListener(this);
+        back_button = (ImageButton) findViewById(R.id.back_button);
+        back_button.setOnClickListener(this);
 
-        radio_button = (ImageButton) findViewById(R.id.radio);
-        radio_button.setOnClickListener(this);
+        play = (ImageButton) findViewById(R.id.play);
+        play.setOnClickListener(this);
+        stop = (ImageButton) findViewById(R.id.stop);
+        stop.setOnClickListener(this);
+        forw = (ImageButton) findViewById(R.id.forw2);
+        forw.setOnClickListener(this);
+        back = (ImageButton) findViewById(R.id.back2);
+        back.setOnClickListener(this);
+        pause = (ImageButton) findViewById(R.id.pause);
+        pause.setOnClickListener(this);
 
-        media_button = (ImageButton) findViewById(R.id.media_button);
-        media_button.setOnClickListener(this);
     }
 
-
     @Override
-    public void onClick(View v){
-        if(v.getId()==mic_button.getId()){
+    public void onClick(View v) {
+        if (v.getId() == mic_button.getId()) {
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, SPEECH_REQUEST_CODE);
         }
 
-        if(v.getId() == home_button.getId()){
-
-            Intent intent = new Intent(MediaAndRadioHomePageActivity.this, LandingPage.class);
+        if (v.getId() == back_button.getId()) {
+            Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
             startActivity(intent);
+
         }
 
-        if(v.getId() == media_button.getId()){
+        if (v.getId() == play.getId()) {
+            int vis = 0;
+            //Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
+            //startActivity(intent);
+            play.setVisibility(View.INVISIBLE);
+            pause.setVisibility(View.VISIBLE);
 
-            Intent intent = new Intent(MediaAndRadioHomePageActivity.this, MediaActivity.class);
-            startActivity(intent);
         }
+        if (v.getId() == pause.getId()) {
+            int vis = 0;
+            //Intent intent = new Intent(MediaActivity.this, MediaAndRadioHomePageActivity.class);
+            //startActivity(intent);
+            pause.setVisibility(View.INVISIBLE);
+            play.setVisibility(View.VISIBLE);
 
-        if(v.getId() == radio_button.getId()){
-
-            Intent intent = new Intent(MediaAndRadioHomePageActivity.this, RadioActivity.class);
-            startActivity(intent);
         }
 
 
@@ -83,18 +105,18 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
                 Toast.makeText(getApplicationContext(), spokenText, Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("media")){
-                Intent goToMediaIntent = new Intent(MediaAndRadioHomePageActivity.this, MediaActivity.class);
-                startActivity(goToMediaIntent);
+                /*Intent goToMediaIntent = new Intent();
+                startActivity(goToMediaIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("phone")|| spokenText.contains("call")){
-                Intent goToPhoneIntent = new Intent(MediaAndRadioHomePageActivity.this, CallsActivity.class);
+                Intent goToPhoneIntent = new Intent(MediaActivity.this, CallsActivity.class);
                 startActivity(goToPhoneIntent);
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("controls")){
-                Intent goToControlsIntent = new Intent(MediaAndRadioHomePageActivity.this, CarControls.class);
-                startActivity(goToControlsIntent);
+                /*Intent goToControlsIntent = new Intent();
+                startActivity(goToControlsIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
             else if(spokenText.contains("climate")){
@@ -107,16 +129,19 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
                 startActivity(goToAppsIntent);*/
                 Toast.makeText(getApplicationContext(),spokenText,Toast.LENGTH_SHORT).show();
             }
+            else if(spokenText.contains("home")){
+                Intent goToHomeIntent = new Intent(MediaActivity.this, LandingPage.class);
+                startActivity(goToHomeIntent);
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_radio_and_media_home_page, menu);
+        getMenuInflater().inflate(R.menu.menu_calls, menu);
         return true;
     }
 
@@ -134,7 +159,5 @@ public class MediaAndRadioHomePageActivity extends ActionBarActivity implements 
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
 }
